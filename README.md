@@ -1,1 +1,1 @@
-# visualizations.github.io
+# visualizations
