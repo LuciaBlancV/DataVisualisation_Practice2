@@ -1,7 +1,8 @@
 # PEC2 - Visualización de Datos 
 ## Máster Ciencia de Datos (UOC)
+## Lucia Blanc Velázquez
 
-Las visualizaciones creadas para esta PEC2 de la asignatura de Visualización de Datos del Máster de Ciencia de Datos de la UOC son las siguientes: 
+En este repositorio se encuentran las visualizaciones creadas para la PEC2 de la asignatura de Visualización de Datos del Máster de Ciencia de Datos de la UOC.
 Los documentos de código con las creaciones de cada una, así como los enlaces correspondientes y los datasets utilizados se encuentras respectivamente en las carpetas SankyDiagram, GaugeDiagram y HexagonBinning del repositorio.
 
 
