@@ -1,13 +1,13 @@
 # PEC2 - Visualización de Datos 
-# Máster Ciencia de Datos (UOC)
+## Máster Ciencia de Datos (UOC)
 
 Las visualizaciones creadas para esta PEC2 de la asignatura de Visualización de Datos del Máster de Ciencia de Datos de la UOC son las siguientes: 
 Los documentos de código con las creaciones de cada una, así como los enlaces correspondientes y los datasets utilizados se encuentras respectivamente en las carpetas SankyDiagram, GaugeDiagram y HexagonBinning del repositorio.
 
 
-*1. Sanky Diagram*
+### 1. Sanky Diagram
 
-"Asylum World Flow in 2023"
+*"Asylum World Flow in 2023"*
 
 Dataset obtenido de UNHCR (https://www.unhcr.org/refugee-statistics/download/?url=XYzR4D)
 
@@ -18,9 +18,9 @@ Creación con R Studio
 
 
 
-*2. Gauge Diagram*
+### 2. Gauge Diagram
 
-"Average Temperatura in India in August 2013"
+*"Average Temperatura in India in August 2013"*
 
 https://public.flourish.studio/visualisation/15609942/ 
 
@@ -33,9 +33,9 @@ Creación con Flourish
 
 
 
-*3. Hexagon Binning*
+### 3. Hexagon Binning
 
-"The Geospatial Indian Index Population in 2011"
+*"The Geospatial Indian Index Population in 2011"*
 
 Dataset obtenido de Kaggle (https://www.kaggle.com/datasets/sirpunch/indian-census-data-with-geospatial-indexing/)
 
