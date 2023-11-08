@@ -1,0 +1,125 @@
+---
+title: "Asylum_2023"
+author: "Lucia Blanc"
+date: "2023-11-02"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+#https://lsinks.github.io/posts/2023-08-28-TidyTuesday-Refugees/TidyTuesday34-refugees.html
+library(readxl)
+asylum <- read_excel("asylum_applications.xlsx")
+View(asylum)
+
+head(asylum)
+```
+
+
+```{r}
+library(tidyverse) # who doesn't want to be tidy
+library(networkD3) # for Sankey plots
+remotes::install_github("davidsjoberg/ggsankey")
+library(ggsankey)
+
+df <- mtcars %>%
+  make_long(cyl, vs, am, gear, carb) 
+
+library(htmlwidgets) # html widgets helps to handle the networkD3 objects
+library(htmltools) # for formatting html code
+```
+
+
+
+```{r}
+#Origin
+asylum <- asylum %>%
+  select(Country_of_origin, Country_of_asylum , Cases)
+
+top_10_source <- asylum %>%
+  group_by(Country_of_origin) %>%
+  summarize(num_by_coo = sum(Cases)) %>%
+  slice_max(order_by = num_by_coo, n = 10)
+
+top_10_source_names <- top_10_source$Country_of_origin
+
+top_10_source_names
+
+
+
+# Destinations
+top_10_dest <- asylum %>%
+  group_by(Country_of_asylum) %>%
+  summarize(num_by_coa = sum(Cases)) %>% slice_max(order_by = num_by_coa, n = 10)
+
+top_10_dest_names <- (top_10_dest$Country_of_asylum)
+top_10_dest_names
+
+
+# First Country of arrival
+asylum$Country_of_asylum = factor(asylum$Country_of_asylum)
+
+asylum$Country_of_asylum <- asylum$Country_of_asylum %>%
+  fct_other(keep = top_10_dest_names, other_level = "other")
+
+# Country of origin
+asylum$Country_of_origin = factor(asylum$Country_of_origin)
+
+asylum$Country_of_origin <- asylum$Country_of_origin %>%
+  fct_other(keep = top_10_source_names, other_level = "Other Country")
+
+# Remove other cateogry
+asylum_no_other <- asylum %>%
+  filter((Country_of_origin != "Other Country"))
+```
+
+
+# Sankey Diagram
+```{r}
+nodes <- data.frame(name =
+                      c(asylum_no_other$Country_of_origin, asylum_no_other$Country_of_asylum) %>%
+                      unique()
+                    )
+
+
+asylum_no_other$IDsource = match(asylum_no_other$Country_of_origin, nodes$name) -
+  1
+asylum_no_other$IDtarget = match(asylum_no_other$Country_of_asylum,  nodes$name) -
+  1
+
+
+ColourScal = 'd3.scaleOrdinal([`#E74C3C`, `#3498DB`, `#E67E22`, `#2ECC71`, `#9B59B6`, `#1ABC9C`, `#F1C40F`, `#D35400`, `#2C3E50`])'
+
+
+# Make the Network
+sankey <- sankeyNetwork(
+  Links = asylum_no_other,
+  Nodes = nodes,
+  Source = "IDsource",
+  Target = "IDtarget",
+  Value = "Cases",
+  NodeID = "name",
+  sinksRight = FALSE,
+  colourScale = ColourScal,
+  nodeWidth = 40,
+  fontSize = 13,
+  nodePadding = 20,
+  width = 600,
+  height = 400
+)
+
+sankey <-
+  htmlwidgets::prependContent(sankey, htmltools::tags$h2("Asylum World Flow in 2023"))
+sankey <-
+  htmlwidgets::appendContent(sankey, htmltools::tags$p("from UNHCR’s, The UN Refugees Agency"))
+
+sankey
+```
+
+
