@@ -1,18 +1,18 @@
-# PEC2 - Visualización de Datos 
-## Máster Ciencia de Datos (UOC)
+# Practice 2 - Data Visualization
+## Master’s in Data Science (UOC)
 ## Lucia Blanc Velázquez
 
-En este repositorio se encuentran las visualizaciones creadas para la PEC2 de la asignatura de Visualización de Datos del Máster de Ciencia de Datos de la UOC.
-Los documentos de código con las creaciones de cada una, así como los enlaces correspondientes y los datasets utilizados se encuentran respectivamente en las carpetas SankyDiagram, GaugeDiagram y HexagonBinning de este repositorio.
+This repository contains the visualizations created for PEC2 of the Data Visualization course in the UOC Master's in Data Science program.
+The code documents for each visualization, along with the corresponding links and datasets used, can be found respectively in the SankyDiagram, GaugeDiagram, and HexagonBinning folders of this repository.
 
 
 ### 1. Sanky Diagram
 
 *"Asylum World Flow in 2023"*
 
-Dataset obtenido de UNHCR (https://www.unhcr.org/refugee-statistics/download/?url=XYzR4D)
+Dataset obtained from UNHCR (https://www.unhcr.org/refugee-statistics/download/?url=XYzR4D)
 
-Creación con R Studio
+Created using R Studio
 
 <img width="609" alt="AsylumFlow_2023" src="https://github.com/LuciaBlancV/visualizations.github.io/assets/148953141/497f8f2a-875b-49bf-8726-1fea819c92a4">
 
@@ -25,9 +25,9 @@ Creación con R Studio
 
 https://public.flourish.studio/visualisation/15609942/ 
 
-Dataset obtenido de Kaggle (https://www.kaggle.com/datasets/berkeleyearth/climate-change-earth-surface-temperature-data)
+Dataset obtained from Kaggle (https://www.kaggle.com/datasets/berkeleyearth/climate-change-earth-surface-temperature-data)
 
-Creación con Flourish
+Created using Flourish
 
 ![Gauge_Diagram](https://github.com/LuciaBlancV/visualizations.github.io/assets/148953141/54a43eb8-7c04-4c9b-ac79-9a835b1facd1)
 
@@ -38,9 +38,9 @@ Creación con Flourish
 
 *"The Geospatial Indian Index Population in 2011"*
 
-Dataset obtenido de Kaggle (https://www.kaggle.com/datasets/sirpunch/indian-census-data-with-geospatial-indexing/)
+Dataset obtained from Kaggle (https://www.kaggle.com/datasets/sirpunch/indian-census-data-with-geospatial-indexing/)
 
-Creación con Python
+Created using Python
 
 ![Geospatial_PopIndia_2011](https://github.com/LuciaBlancV/visualizations.github.io/assets/148953141/819dd1b3-d633-46b2-a61e-cae575dec9d0)
 
